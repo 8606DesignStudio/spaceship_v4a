@@ -35,8 +35,10 @@ body {
 
 /* Ensure container maintains aspect ratio based on viewport width */
 .aspect-ratio-container {
-    aspect-ratio: 16/9; /* Adjust this ratio based on your actual image */
+    width: 100%;
+    height: auto;
     max-height: 100vh;
+    max-width: 100%;
 }
 
 /* Shooting stars container - positioned within the cockpit window */
