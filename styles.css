@@ -21,10 +21,8 @@ body {
 .aspect-ratio-container {
     position: relative;
     width: 100%;
-    height: 0;
-    padding-top: 56.25%; /* 16:9 aspect ratio */
+    height: 100vh;
     max-width: 100vw;
-    max-height: 100vh;
     margin: auto;
 }
 
@@ -34,7 +32,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 /* Shooting stars container - positioned within the cockpit window */
