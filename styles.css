@@ -35,7 +35,7 @@ body {
 
 /* Ensure container maintains aspect ratio based on viewport width */
 .aspect-ratio-container {
-    aspect-ratio: 4/3; /* Adjust this ratio based on your actual image */
+    aspect-ratio: 16/9; /* Adjust this ratio based on your actual image */
     max-height: 100vh;
 }
 
