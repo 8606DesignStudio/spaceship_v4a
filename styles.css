@@ -278,7 +278,7 @@ body {
 
 .instruction-arrow {
     position: absolute;
-    top: 100%;
+    top: 85%;
     left: 50%;
     transform: translateX(-50%) scaleX(2);
     font-size: 1rem;
