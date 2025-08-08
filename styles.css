@@ -328,6 +328,38 @@ body {
         0 0 0 1px rgba(255, 255, 255, 0.2);
 }
 
+.rachel-go-button {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+.rachel-go-button a {
+    display: inline-block;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 
+        0 3px 10px rgba(46, 204, 113, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.rachel-go-button a:hover {
+    background: linear-gradient(135deg, #2ecc71, #58d68d);
+    transform: translateX(-50%) translateY(-2px);
+    box-shadow: 
+        0 5px 15px rgba(46, 204, 113, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
 .stripe-button .rachel-link {
     display: inline-block;
     padding: 8px 16px;
