@@ -354,7 +354,7 @@ body {
 
 .rachel-center-button a:hover {
     background: linear-gradient(135deg, #ffed4e, #ffd700);
-    transform: translateX(-50%) translateY(-1px);
+    transform: translateY(-1px);
     box-shadow: 
         0 4px 12px rgba(255, 215, 0, 0.4),
         0 0 0 1px rgba(255, 255, 255, 0.2);
