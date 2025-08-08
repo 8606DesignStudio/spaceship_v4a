@@ -4,7 +4,7 @@
   "description": "The Kastle - Interactive podcast episode browser",
   "main": "script.js",
   "scripts": {
-    "dev": "python -m http.server 8000",
+    "dev": "http-server . -p 8000 -c-1",
     "start": "python -m http.server 8000",
     "generate-episodes": "node scripts/generate_episodes_data.js"
   },
