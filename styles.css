@@ -250,6 +250,109 @@ body {
         0 0 0 1px rgba(255, 255, 255, 0.2);
 }
 
+/* Rachel page styles */
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+
+.back-button a {
+    display: inline-block;
+    padding: 8px 16px;
+    background: linear-gradient(135deg, #ffd700, #ffb347);
+    color: #8b4513;
+    text-decoration: none;
+    border-radius: 6px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 
+        0 2px 8px rgba(255, 215, 0, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.back-button a:hover {
+    background: linear-gradient(135deg, #ffed4e, #ffd700);
+    transform: translateY(-1px);
+    box-shadow: 
+        0 4px 12px rgba(255, 215, 0, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+.rachel-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Quicksand', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #4bb8e9;
+    text-shadow: 
+        0 0 8px rgba(75, 184, 233, 0.4),
+        0 0 16px rgba(75, 184, 233, 0.2);
+}
+
+.rachel-bottom-button {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+.rachel-bottom-button a {
+    display: inline-block;
+    padding: 8px 16px;
+    background: linear-gradient(135deg, #e67e22, #d35400);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 
+        0 2px 8px rgba(230, 126, 34, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.rachel-bottom-button a:hover {
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+    transform: translateX(-50%) translateY(-1px);
+    box-shadow: 
+        0 4px 12px rgba(230, 126, 34, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+.stripe-button .rachel-link {
+    display: inline-block;
+    padding: 8px 16px;
+    background: linear-gradient(135deg, #e91e63, #c2185b);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+    box-shadow: 
+        0 2px 8px rgba(233, 30, 99, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.stripe-button .rachel-link:hover {
+    background: linear-gradient(135deg, #f06292, #e91e63);
+    transform: translateY(-1px);
+    box-shadow: 
+        0 4px 12px rgba(233, 30, 99, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
 .dials {
     position: absolute;
     top: 33%;
