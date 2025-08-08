@@ -8,8 +8,15 @@
     "start": "python -m http.server 8000",
     "generate-episodes": "node scripts/generate_episodes_data.js"
   },
-  "keywords": ["podcast", "interactive", "episodes"],
+  "keywords": [
+    "podcast",
+    "interactive",
+    "episodes"
+  ],
   "author": "",
   "license": "ISC",
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
 }
