@@ -362,6 +362,19 @@ body {
         0 0 0 1px rgba(255, 255, 255, 0.2);
 }
 
+.rachel-button.black {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: white;
+}
+
+.rachel-button.black:hover {
+    background: linear-gradient(135deg, #34495e, #2c3e50);
+    transform: translateY(-1px);
+    box-shadow: 
+        0 4px 12px rgba(44, 62, 80, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
 .stripe-button .rachel-link {
     display: inline-block;
     padding: 8px 16px;
