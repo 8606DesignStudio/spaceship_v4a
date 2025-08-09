@@ -250,23 +250,22 @@ body {
         0 0 0 1px rgba(255, 255, 255, 0.2);
 }
 
-.upload-button-container {
+.upload-button-bottom-left {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    bottom: 20px;
+    left: 20px;
     z-index: 1000;
 }
 
 .upload-button {
     display: inline-block;
-    padding: 12px 24px;
+    padding: 6px 12px;
     background: linear-gradient(135deg, #ffd700, #ffb347);
     color: #8b4513;
     border: none;
     border-radius: 6px;
     font-family: 'Quicksand', sans-serif;
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
