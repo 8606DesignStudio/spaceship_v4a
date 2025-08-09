@@ -340,7 +340,7 @@ body {
 
 .rachel-hint-button {
     position: absolute;
-    bottom: 20px;
+    bottom: 10%;
     left: 10%;
     z-index: 1000;
 }
