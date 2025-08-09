@@ -39,11 +39,31 @@
                 const reader = new FileReader();
                 reader.onload = (e) => {
                     const imageUrl = e.target.result;
-                    // Update background image
-                    backgroundContainer.style.backgroundImage = `url(${imageUrl})`;
-                    backgroundContainer.style.backgroundSize = 'contain';
-                    backgroundContainer.style.backgroundPosition = 'center';
-                    backgroundContainer.style.backgroundRepeat = 'no-repeat';
+                    
+                    // Create image element for zoom functionality
+                    const img = document.createElement('img');
+                    img.src = imageUrl;
+                    img.style.position = 'absolute';
+                    img.style.top = '50%';
+                    img.style.left = '50%';
+                    img.style.transform = 'translate(-50%, -50%)';
+                    img.style.maxWidth = '100%';
+                    img.style.maxHeight = '100%';
+                    img.style.objectFit = 'contain';
+                    img.style.cursor = 'grab';
+                    img.style.userSelect = 'none';
+                    img.style.transition = 'transform 0.1s ease-out';
+                    img.id = 'zoomableImage';
+                    
+                    // Clear any existing images and add new one
+                    const existingImg = document.getElementById('zoomableImage');
+                    if (existingImg) {
+                        existingImg.remove();
+                    }
+                    backgroundContainer.appendChild(img);
+                    
+                    // Initialize zoom functionality
+                    initializeZoom(img);
                     
                     // Hide the upload button after successful upload
                     const uploadButtonContainer = document.querySelector('.upload-button-bottom-left');
@@ -54,6 +74,142 @@
                 reader.readAsDataURL(file);
             }
         });
+        
+        // Zoom and pan functionality
+        function initializeZoom(img) {
+            let scale = 1;
+            let translateX = 0;
+            let translateY = 0;
+            let isDragging = false;
+            let startX = 0;
+            let startY = 0;
+            let lastX = 0;
+            let lastY = 0;
+            
+            const minScale = 0.5;
+            const maxScale = 5;
+            
+            function updateTransform() {
+                img.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+            }
+            
+            // Wheel zoom
+            img.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                
+                const rect = img.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+                
+                const mouseX = e.clientX - centerX;
+                const mouseY = e.clientY - centerY;
+                
+                const delta = e.deltaY > 0 ? 0.9 : 1.1;
+                const newScale = Math.min(Math.max(scale * delta, minScale), maxScale);
+                
+                if (newScale !== scale) {
+                    const scaleChange = newScale / scale;
+                    translateX = translateX * scaleChange + mouseX * (1 - scaleChange);
+                    translateY = translateY * scaleChange + mouseY * (1 - scaleChange);
+                    scale = newScale;
+                    updateTransform();
+                }
+            });
+            
+            // Mouse drag
+            img.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                startX = e.clientX - translateX;
+                startY = e.clientY - translateY;
+                img.style.cursor = 'grabbing';
+                e.preventDefault();
+            });
+            
+            document.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                translateX = e.clientX - startX;
+                translateY = e.clientY - startY;
+                updateTransform();
+            });
+            
+            document.addEventListener('mouseup', () => {
+                isDragging = false;
+                img.style.cursor = 'grab';
+            });
+            
+            // Touch events for mobile
+            let initialDistance = 0;
+            let initialScale = 1;
+            
+            img.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                
+                if (e.touches.length === 1) {
+                    // Single touch - start dragging
+                    isDragging = true;
+                    const touch = e.touches[0];
+                    startX = touch.clientX - translateX;
+                    startY = touch.clientY - translateY;
+                } else if (e.touches.length === 2) {
+                    // Two touches - start pinch zoom
+                    isDragging = false;
+                    const touch1 = e.touches[0];
+                    const touch2 = e.touches[1];
+                    initialDistance = Math.hypot(
+                        touch2.clientX - touch1.clientX,
+                        touch2.clientY - touch1.clientY
+                    );
+                    initialScale = scale;
+                }
+            });
+            
+            img.addEventListener('touchmove', (e) => {
+                e.preventDefault();
+                
+                if (e.touches.length === 1 && isDragging) {
+                    // Single touch - drag
+                    const touch = e.touches[0];
+                    translateX = touch.clientX - startX;
+                    translateY = touch.clientY - startY;
+                    updateTransform();
+                } else if (e.touches.length === 2) {
+                    // Two touches - pinch zoom
+                    const touch1 = e.touches[0];
+                    const touch2 = e.touches[1];
+                    const currentDistance = Math.hypot(
+                        touch2.clientX - touch1.clientX,
+                        touch2.clientY - touch1.clientY
+                    );
+                    
+                    const newScale = Math.min(Math.max(
+                        initialScale * (currentDistance / initialDistance),
+                        minScale
+                    ), maxScale);
+                    
+                    scale = newScale;
+                    updateTransform();
+                }
+            });
+            
+            img.addEventListener('touchend', () => {
+                isDragging = false;
+            });
+            
+            // Double-tap to reset zoom
+            let lastTap = 0;
+            img.addEventListener('touchend', (e) => {
+                const currentTime = new Date().getTime();
+                const tapLength = currentTime - lastTap;
+                if (tapLength < 500 && tapLength > 0) {
+                    // Double tap detected - reset zoom
+                    scale = 1;
+                    translateX = 0;
+                    translateY = 0;
+                    updateTransform();
+                }
+                lastTap = currentTime;
+            });
+        }
     </script>
 </body>
 </html>
