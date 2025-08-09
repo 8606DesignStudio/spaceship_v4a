@@ -9,51 +9,12 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="background-container">
         <!-- Back button -->
         <div class="back-button">
             <a href="rachel.html">← Back</a>
         </div>
         
-        <!-- Upload button - bottom left -->
-        <div class="upload-button-bottom-left">
-            <input type="file" id="photoUpload" accept="image/*" style="display: none;">
-            <button id="uploadButton" class="upload-button">📷 Upload Photo</button>
-        </div>
-    </div>
 
-    <script>
-        const photoUpload = document.getElementById('photoUpload');
-        const uploadButton = document.getElementById('uploadButton');
-        const backgroundContainer = document.getElementById('background-container');
-        
-        // Click upload button to trigger file input
-        uploadButton.addEventListener('click', () => {
-            photoUpload.click();
-        });
-        
-        // Handle file selection
-        photoUpload.addEventListener('change', (e) => {
-            const file = e.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    const imageUrl = e.target.result;
-                    // Update background image
-                    backgroundContainer.style.backgroundImage = `url(${imageUrl})`;
-                    backgroundContainer.style.backgroundSize = 'contain';
-                    backgroundContainer.style.backgroundPosition = 'center';
-                    backgroundContainer.style.backgroundRepeat = 'no-repeat';
-                    
-                    // Hide the upload button after successful upload
-                    const uploadButtonContainer = document.querySelector('.upload-button-bottom-left');
-                    if (uploadButtonContainer) {
-                        uploadButtonContainer.style.display = 'none';
-                    }
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-    </script>
+  
 </body>
 </html>
