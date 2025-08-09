@@ -328,15 +328,17 @@ body {
         0 0 0 1px rgba(255, 255, 255, 0.2);
 }
 
-.rachel-center-button {
+.rachel-buttons-container {
     position: absolute;
     top: 60%;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
+    display: flex;
+    gap: 15px;
 }
 
-.rachel-center-button a {
+.rachel-button {
     display: inline-block;
     padding: 12px 24px;
     background: linear-gradient(135deg, #ffd700, #ffb347);
@@ -352,7 +354,7 @@ body {
         0 0 0 1px rgba(255, 255, 255, 0.1);
 }
 
-.rachel-center-button a:hover {
+.rachel-button:hover {
     background: linear-gradient(135deg, #ffed4e, #ffd700);
     transform: translateY(-1px);
     box-shadow: 
