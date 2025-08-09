@@ -338,6 +338,13 @@ body {
     gap: 15px;
 }
 
+.rachel-hint-button {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+
 .rachel-button {
     display: inline-block;
     padding: 12px 24px;
