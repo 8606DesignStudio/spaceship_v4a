@@ -330,7 +330,7 @@ body {
 
 .rachel-buttons-container {
     position: absolute;
-    top: 60%;
+    top: 75%;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
