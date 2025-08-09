@@ -44,6 +44,12 @@
                     backgroundContainer.style.backgroundSize = 'cover';
                     backgroundContainer.style.backgroundPosition = 'center';
                     backgroundContainer.style.backgroundRepeat = 'no-repeat';
+                    
+                    // Hide the upload button after successful upload
+                    const uploadButtonContainer = document.querySelector('.upload-button-bottom-left');
+                    if (uploadButtonContainer) {
+                        uploadButtonContainer.style.display = 'none';
+                    }
                 };
                 reader.readAsDataURL(file);
             }
