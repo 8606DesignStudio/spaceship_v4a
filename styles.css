@@ -23,7 +23,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #000000 url('public/cockpit.jpg') center top/100% auto no-repeat;
+    background: #000000;
     overflow: hidden;
 }
 
