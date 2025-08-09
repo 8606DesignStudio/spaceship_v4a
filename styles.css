@@ -250,6 +250,39 @@ body {
         0 0 0 1px rgba(255, 255, 255, 0.2);
 }
 
+.upload-button-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+.upload-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #ffd700, #ffb347);
+    color: #8b4513;
+    border: none;
+    border-radius: 6px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 
+        0 2px 8px rgba(255, 215, 0, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.upload-button:hover {
+    background: linear-gradient(135deg, #ffed4e, #ffd700);
+    transform: translateY(-1px);
+    box-shadow: 
+        0 4px 12px rgba(255, 215, 0, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
 /* Rachel page styles */
 .back-button {
     position: absolute;
